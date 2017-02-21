@@ -3,19 +3,17 @@ import java.util.List;
 /**
  * Created by Yui on 2017/2/21.
  */
-public class iPipe {
+public class iPipe<T> {
 
-    public List<iFilter> filters;
+    public List<iFilter<T>> filters = null;
 
-    public iPipe() {}
-
-    public void registerFilter(List<iFilter> filter){
-        for(iFilter ifilter : filter) {
+    public void registerFilter(List<iFilter<T>> filter){
+        for(iFilter<T> ifilter : filter) {
             filters.add(ifilter);
         }
     }
 
-    public <T> List<T> doFilter(List<T> list){
+    public  List<T> doFilter(List<T> list){
         return list;
     }
 }
